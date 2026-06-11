@@ -8,6 +8,7 @@ def main():
         print("3. View Pending Tasks")
         print("4. View Progress")
         print("5. Exit")
+        
         choice = input("Enter your choice (1-5): ")
 
         if choice == "1":
@@ -18,8 +19,8 @@ def main():
 
         elif choice == "2":
             view_pending_tasks()
-            idx = input("Enter task number to mark complete: ")
-            mark_task_as_complete(idx)
+            index = input("Enter task number to mark complete: ")
+            mark_task_as_complete(index)
 
         elif choice == "3":
             view_pending_tasks()

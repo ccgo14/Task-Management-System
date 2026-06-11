@@ -1,10 +1,18 @@
 from datetime import datetime
 
 def validate_task_title(title):
-    return isinstance(title, str) and len(title.strip()) > 0
+    if not isinstance(title, str):
+        return False
+    if len(title.strip()) == 0:
+        return False
+    return True
 
 def validate_task_description(description):
-    return isinstance(description, str) and len(description.strip()) > 0
+    if not isinstance(description, str):
+        return False
+    if len(description.strip()) == 0:
+        return False
+    return True
 
 def validate_due_date(due_date):
     try:

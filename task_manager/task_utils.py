@@ -1,12 +1,6 @@
-from datetime import datetime
-from task_manager.validation import (
-    validate_task_title,
-    validate_task_description,
-    validate_due_date,
-)
+from task_manager.validation import validate_task_title, validate_task_description, validate_due_date
 
 tasks = []
-
 
 def add_task(title, description, due_date):
     if not validate_task_title(title):
@@ -23,11 +17,10 @@ def add_task(title, description, due_date):
         "title": title,
         "description": description,
         "due_date": due_date,
-        "completed": False,
+        "completed": False
     }
     tasks.append(task)
     print("Task added successfully!")
-
 
 def mark_task_as_complete(index, tasks=tasks):
     try:
@@ -38,18 +31,15 @@ def mark_task_as_complete(index, tasks=tasks):
         else:
             print("Invalid task index.")
     except ValueError:
-        print("Please enter a valid number.")
-
+        print("Invalid input. Please enter a number.")
 
 def view_pending_tasks(tasks=tasks):
     pending = [t for t in tasks if not t["completed"]]
     if not pending:
         print("No pending tasks.")
         return
-    print("\nPending Tasks:")
     for i, task in enumerate(pending, start=1):
         print(f"{i}. {task['title']} - {task['description']} (Due: {task['due_date']})")
-
 
 def calculate_progress(tasks=tasks):
     if not tasks:
